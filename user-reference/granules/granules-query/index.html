@@ -1,0 +1,1705 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Client library for NASA APIs">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/betolink/earthdata/user-reference/granules/granules-query/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+    
+    
+      
+        <title>Granule Queries - earthdata</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documentation-for-granules" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="earthdata" class="md-header__button md-logo" aria-label="earthdata" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            earthdata
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Granule Queries
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/betolink/earthdata" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    betolink/earthdata
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="earthdata" class="md-nav__button md-logo" aria-label="earthdata" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    earthdata
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/betolink/earthdata" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    betolink/earthdata
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/demo/" class="md-nav__link">
+         NASA Earthdata API Client 🌍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/restricted-datasets/" class="md-nav__link">
+        Datasets under an access control list (ACL)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/onprem.md" class="md-nav__link">
+        Accessing on-prem datasets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/cloud.md" class="md-nav__link">
+        Accessing cloud-based datasets
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          User Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="User Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          User Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Collections
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Collections" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Collections
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../collections/collections-query/" class="md-nav__link">
+        Collection Queries
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../collections/collections/" class="md-nav__link">
+        Collection Results
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Granules
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Granules" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Granules
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Granule Queries
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Granule Queries
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules" class="md-nav__link">
+    DataGranules
+  </a>
+  
+    <nav class="md-nav" aria-label="DataGranules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.bounding_box" class="md-nav__link">
+    bounding_box()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.cloud_cover" class="md-nav__link">
+    cloud_cover()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.concept_id" class="md-nav__link">
+    concept_id()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.day_night_flag" class="md-nav__link">
+    day_night_flag()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.downloadable" class="md-nav__link">
+    downloadable()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.entry_title" class="md-nav__link">
+    entry_title()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.format" class="md-nav__link">
+    format()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.get" class="md-nav__link">
+    get()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.get_all" class="md-nav__link">
+    get_all()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.granule_ur" class="md-nav__link">
+    granule_ur()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.hits" class="md-nav__link">
+    hits()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.instrument" class="md-nav__link">
+    instrument()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.line" class="md-nav__link">
+    line()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.mode" class="md-nav__link">
+    mode()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.online_only" class="md-nav__link">
+    online_only()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.orbit_number" class="md-nav__link">
+    orbit_number()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.parameters" class="md-nav__link">
+    parameters()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.platform" class="md-nav__link">
+    platform()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.point" class="md-nav__link">
+    point()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.polygon" class="md-nav__link">
+    polygon()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.provider" class="md-nav__link">
+    provider()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.short_name" class="md-nav__link">
+    short_name()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.temporal" class="md-nav__link">
+    temporal()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.token" class="md-nav__link">
+    token()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.version" class="md-nav__link">
+    version()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../granules/" class="md-nav__link">
+        Granule Results
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules" class="md-nav__link">
+    DataGranules
+  </a>
+  
+    <nav class="md-nav" aria-label="DataGranules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.bounding_box" class="md-nav__link">
+    bounding_box()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.cloud_cover" class="md-nav__link">
+    cloud_cover()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.concept_id" class="md-nav__link">
+    concept_id()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.day_night_flag" class="md-nav__link">
+    day_night_flag()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.downloadable" class="md-nav__link">
+    downloadable()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.entry_title" class="md-nav__link">
+    entry_title()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.format" class="md-nav__link">
+    format()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.get" class="md-nav__link">
+    get()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.get_all" class="md-nav__link">
+    get_all()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.granule_ur" class="md-nav__link">
+    granule_ur()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.hits" class="md-nav__link">
+    hits()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.instrument" class="md-nav__link">
+    instrument()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.line" class="md-nav__link">
+    line()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.mode" class="md-nav__link">
+    mode()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.online_only" class="md-nav__link">
+    online_only()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.orbit_number" class="md-nav__link">
+    orbit_number()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.parameters" class="md-nav__link">
+    parameters()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.platform" class="md-nav__link">
+    platform()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.point" class="md-nav__link">
+    point()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.polygon" class="md-nav__link">
+    polygon()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.provider" class="md-nav__link">
+    provider()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.short_name" class="md-nav__link">
+    short_name()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.temporal" class="md-nav__link">
+    temporal()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.token" class="md-nav__link">
+    token()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earthdata.search.DataGranules.version" class="md-nav__link">
+    version()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="documentation-for-granules">Documentation for <code>Granules</code></h1>
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h2 id="earthdata.search.DataGranules" class="doc doc-heading">
+        <code>
+earthdata.search.DataGranules            (<span title="cmr.queries.GranuleQuery">GranuleQuery</span>)
+        </code>
+
+
+
+</h2>
+
+    <div class="doc doc-contents first">
+
+      <p>A Granule oriented client for NASA CMR</p>
+<p>API: https://cmr.earthdata.nasa.gov/search/site/docs/search/api.html</p>
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.bounding_box" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">bounding_box</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lower_left_lon</span><span class="p">,</span> <span class="n">lower_left_lat</span><span class="p">,</span> <span class="n">upper_right_lon</span><span class="p">,</span> <span class="n">upper_right_lat</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Filter by granules that overlap a bounding box. Must be used in combination with
+a collection filtering parameter such as short_name or entry_title.</p>
+<p>:param lower_left_lon: lower left longitude of the box
+:param lower_left_lat: lower left latitude of the box
+:param upper_right_lon: upper right longitude of the box
+:param upper_right_lat: upper right latitude of the box
+:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.cloud_cover" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">cloud_cover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_cover</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_cover</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Filter by the percentage of cloud cover present in the granule.</p>
+<p>:param min_cover: minimum percentage of cloud cover
+:param max_cover: maximum percentage of cloud cover
+:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.concept_id" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">concept_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">IDs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Filter by concept ID (ex: C1299783579-LPDAAC_ECS or G1327299284-LPDAAC_ECS, T12345678-LPDAAC_ECS, S12345678-LPDAAC_ECS)</p>
+<p>Collections, granules, tools, services are uniquely identified with this ID.
+If providing a collection's concept ID here, it will filter by granules associated with that collection.
+If providing a granule's concept ID here, it will uniquely identify those granules.
+If providing a tool's concept ID here, it will uniquely identify those tools.
+If providing a service's concept ID here, it will uniquely identify those services.</p>
+<p>:param IDs: concept ID(s) to search by. Can be provided as a string or list of strings.
+:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.day_night_flag" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">day_night_flag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">day_night_flag</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Filter by period of the day the granule was collected during.</p>
+<p>:param day_night_flag: "day", "night", or "unspecified"
+:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.downloadable" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">downloadable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">downloadable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Only match granules that are available for download. The opposite of this
+method is online_only().</p>
+<p>:param downloadable: True to require granules be downloadable
+:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.entry_title" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">entry_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry_title</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Filter by the collection entry title.</p>
+<p>:param entry_title: Entry title of the collection
+:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.format" class="doc doc-heading">
+<code class="highlight language-python"><span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_format</span><span class="o">=</span><span class="s1">&#39;json&#39;</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Sets the format for the returned results.</p>
+<p>:param output_format: Preferred output format
+:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.get" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">20000</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Get all results up to some limit, even if spanning multiple pages.
+:limit: The number of results to return
+:returns: query results as a list</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.get_all" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_all</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Returns all of the results for the query. This will call hits() first to determine how many
+results their are, and then calls get() with that number. This method could take quite
+awhile if many requests have to be made.</p>
+<p>:returns: query results as a list</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.granule_ur" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">granule_ur</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">granule_ur</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Filter by the granules unique ID. Note this will result in at most one granule
+being returned.</p>
+<p>:param granule_ur: UUID of a granule
+:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.hits" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">hits</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Returns the number of hits the current query will return. This is done by
+making a lightweight query to CMR and inspecting the returned headers.</p>
+<p>:returns: number of results reproted by CMR</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.instrument" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">instrument</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instrument</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Filter by the instrument associated with the granule.</p>
+<p>:param instrument: name of the instrument
+:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.line" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">line</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coordinates</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Filter by granules that overlap a series of connected points. Must be used in combination
+with a collection filtering parameter such as short_name or entry_title.</p>
+<p>:param coordinates: a list of (lon, lat) tuples
+:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.mode" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">mode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;https://cmr.earthdata.nasa.gov/search/&#39;</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Sets the mode of the api target to the given URL
+CMR_OPS, CMR_UAT, CMR_SIT are provided as class variables</p>
+<p>:param mode: Mode to set the query to target
+:throws: Will throw if provided None</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.online_only" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">online_only</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">online_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Only match granules that are listed online and not available for download.
+The opposite of this method is downloadable().</p>
+<p>:param online_only: True to require granules only be online
+:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.orbit_number" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">orbit_number</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orbit1</span><span class="p">,</span> <span class="n">orbit2</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>"
+Filter by the orbit number the granule was acquired during. Either a single
+orbit can be targeted or a range of orbits.</p>
+<p>:param orbit1: orbit to target (lower limit of range when orbit2 is provided)
+:param orbit2: upper limit of range
+:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.parameters" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Provide query parameters as keyword arguments. The keyword needs to match the name
+of the method, and the value should either be the value or a tuple of values.</p>
+<p>Example: parameters(short_name="AST_L1T", point=(42.5, -101.25))</p>
+<p>:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.platform" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">platform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">platform</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Filter by the satellite platform the granule came from.</p>
+<p>:param platform: name of the satellite
+:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.point" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">point</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Filter by granules that include a geographic point.</p>
+<p>:param lon: longitude of geographic point
+:param lat: latitude of geographic point
+:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.polygon" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">polygon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coordinates</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Filter by granules that overlap a polygonal area. Must be used in combination with a
+collection filtering parameter such as short_name or entry_title.</p>
+<p>:param coordinates: list of (lon, lat) tuples
+:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.provider" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">provider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">provider</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Filter by provider.</p>
+<p>:param provider: provider of tool.
+:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.short_name" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">short_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">short_name</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Filter by short name (aka product or collection name).</p>
+<p>:param short_name: name of collection
+:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.temporal" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">temporal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date_from</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">date_to</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_boundary</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Filter by an open or closed date range.
+Dates can be provided as a datetime objects or ISO 8601 formatted strings. Multiple
+ranges can be provided by successive calls to this method before calling execute().
+:param date_from: earliest date of temporal range
+:param date_to: latest date of temporal range
+:param exclude_boundary: whether or not to exclude the date_from/to in the matched range
+:returns: GranueQuery instance</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.token" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Add token into url request.</p>
+<p>:param token: Token from EDL.
+:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="earthdata.search.DataGranules.version" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">version</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">version</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Filter by version. Note that CMR defines this as a string. For example,
+MODIS version 6 products must be searched for with "006".</p>
+<p>:param version: version string
+:returns: Query instance</p>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../collections/collections/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Collection Results" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Collection Results
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../granules/" class="md-footer__link md-footer__link--next" aria-label="Next: Granule Results" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Granule Results
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      
+    
+  </body>
+</html>
