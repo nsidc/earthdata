@@ -1,37 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://github.com/betolink/earthdata/</loc>
+         <loc>https://github.com/nsidc/earthdata/</loc>
          <lastmod>2022-04-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/betolink/earthdata/tutorials/demo/</loc>
+         <loc>https://github.com/nsidc/earthdata/tutorials/demo/</loc>
          <lastmod>2022-04-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/betolink/earthdata/tutorials/restricted-datasets/</loc>
+         <loc>https://github.com/nsidc/earthdata/tutorials/restricted-datasets/</loc>
          <lastmod>2022-04-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/betolink/earthdata/user-reference/collections/collections-query/</loc>
+         <loc>https://github.com/nsidc/earthdata/user-reference/collections/collections-query/</loc>
          <lastmod>2022-04-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/betolink/earthdata/user-reference/collections/collections/</loc>
+         <loc>https://github.com/nsidc/earthdata/user-reference/collections/collections/</loc>
          <lastmod>2022-04-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/betolink/earthdata/user-reference/granules/granules-query/</loc>
+         <loc>https://github.com/nsidc/earthdata/user-reference/glossary/cloud-glossary/</loc>
          <lastmod>2022-04-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/betolink/earthdata/user-reference/granules/granules/</loc>
+         <loc>https://github.com/nsidc/earthdata/user-reference/glossary/nasa-glossary/</loc>
+         <lastmod>2022-04-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/nsidc/earthdata/user-reference/granules/granules-query/</loc>
+         <lastmod>2022-04-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/nsidc/earthdata/user-reference/granules/granules/</loc>
          <lastmod>2022-04-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
